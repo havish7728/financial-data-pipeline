@@ -1,9 +1,9 @@
 import pandas as pd
-from database import get_db_connection
+from database import create_connection
 
 def extract_data():
-    conn = get_db_connection()
-    query = "SELECT * FROM transactions"
+    conn = create_connection()
+    query = "SELECT * FROM transaction"
     df = pd.read_sql(query, conn)
     conn.close()
     return df
